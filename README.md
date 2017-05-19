@@ -11,7 +11,7 @@ The state of the vehicle is defined as [x,y,psi,v], and the actuator is [delta, 
 "a" which means the steering angle takes the value between and including -1.0 and 1.0.
 
 
-![Constraint](constraint.png "constraint")
+![Constraint](img/constraint.png "constraint")
 
 
 Below is the cost function to minimize.
@@ -48,7 +48,7 @@ A polynomial is fitted to waypoints.
 I used 3rd order of polynomial fit. At each timestep, we get 6 waypoints that is global coordinate system. I preprocess those waypoints to the car coordinate system. To covert from global coordinate system to car coordinate system, each of waypoints are subtracted from the car position (px,py) and then rotate by -psi.
 At each timestep, the car is always located in (0,0) so, the calculation for polynomial fitting is easy.
 
-![Rotation](rotate.png "rotate")
+![Rotation](img/rotate.png "rotate")
 
 ### Model Predictive Control with Latency.
 As I mentioned above, there exists 100ms latency. Therefore, we need to predict at least 100ms ahead. Predicting further future(more than 100ms) was hard to predict. Therefore, I set it as 100ms.
